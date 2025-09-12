@@ -17,6 +17,7 @@ from ..healthbench_eval import HealthBenchEval
 from ..sampler.chat_completion_sampler import ChatCompletionSampler, OPENAI_SYSTEM_MESSAGE_API, OPENAI_SYSTEM_MESSAGE_CHATGPT
 from ..sampler.o_chat_completion_sampler import OChatCompletionSampler
 from ..sampler.responses_sampler import ResponsesSampler
+from ..sampler.grok_sampler import GrokCompletionSampler
 from ..sampler.claude_sampler import ClaudeCompletionSampler, CLAUDE_SYSTEM_MESSAGE_LMSYS
 from ..types import Eval, SamplerBase
 
@@ -31,6 +32,9 @@ def build_sampler(model: str) -> SamplerBase:
     # Claude models
     if model_lower.startswith("claude-"):
         return ClaudeCompletionSampler(model=model, system_message=os.getenv("CLAUDE_SYSTEM_MESSAGE", CLAUDE_SYSTEM_MESSAGE_LMSYS))
+    # Grok models (xAI)
+    if model_lower.startswith("grok"):
+        return GrokCompletionSampler(model=model)
     # ChatGPT named model
     if model_lower == "chatgpt-4o-latest":
         return ChatCompletionSampler(model=model, system_message=OPENAI_SYSTEM_MESSAGE_CHATGPT, max_tokens=2048)
