@@ -14,9 +14,13 @@ from ..humaneval_eval import HumanEval
 from ..simpleqa_eval import SimpleQAEval
 from ..browsecomp_eval import BrowseCompEval
 from ..healthbench_eval import HealthBenchEval
-from ..sampler.chat_completion_sampler import ChatCompletionSampler, OPENAI_SYSTEM_MESSAGE_API, OPENAI_SYSTEM_MESSAGE_CHATGPT
-from ..sampler.o_chat_completion_sampler import OChatCompletionSampler
-from ..sampler.responses_sampler import ResponsesSampler
+from ..sampler.openai_samplers import (
+    ChatCompletionSampler,
+    OPENAI_SYSTEM_MESSAGE_API,
+    OPENAI_SYSTEM_MESSAGE_CHATGPT,
+    OChatCompletionSampler,
+    ResponsesSampler,
+)
 from ..sampler.grok_sampler import GrokCompletionSampler
 from ..sampler.claude_sampler import ClaudeCompletionSampler, CLAUDE_SYSTEM_MESSAGE_LMSYS
 from ..types import Eval, SamplerBase

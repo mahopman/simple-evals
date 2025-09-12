@@ -9,7 +9,7 @@ import json
 import random
 import re
 import string
-from typing import Any, Dict, List, Optional, Set, Tuple, Union
+from typing import Any, Dict, List, Set, Tuple, Union
 
 import numpy as np
 from scipy.optimize import linear_sum_assignment
@@ -239,14 +239,14 @@ class DropEval(Eval):
         self._num_examples = num_examples
         self._train_samples_per_prompt = train_samples_per_prompt
         self.train_jsonl = (
-            "https://openaipublic.blob.core.windows.net/simple-evals/drop_v0_train.jsonl.gz"
+            "data/simple-evals/drop/drop_v0_train.jsonl.gz"
         )
         self.test_jsonl = (
-            "https://openaipublic.blob.core.windows.net/simple-evals/drop_v0_dev.jsonl.gz"
+            "data/simple-evals/drop/drop_v0_dev.jsonl.gz"
         )
-        with gzip.GzipFile(fileobj=common.url_to_fileobj(self.train_jsonl, binary=True), mode="rb") as f:
+        with gzip.open(self.train_jsonl, mode="rt") as f:
             self.train_samples = list(map(json.loads, f.readlines()))
-        with gzip.GzipFile(fileobj=common.url_to_fileobj(self.test_jsonl, binary=True), mode="rb") as f:
+        with gzip.open(self.test_jsonl, mode="rt") as f:
             self.test_samples = list(map(json.loads, f.readlines()))
             if self._num_examples:
                 self.test_samples = random.Random(self.seed).sample(

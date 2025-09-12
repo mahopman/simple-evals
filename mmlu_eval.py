@@ -84,9 +84,9 @@ subject2category = {
 class MMLUEval(Eval):
     def __init__(self, num_examples: int | None = None, language: str = "EN-US"):
         if language != "EN-US":
-            url = f"https://openaipublic.blob.core.windows.net/simple-evals/mmlu_{language}.csv"
+            url = f"data/simple-evals/mmlu/mmlu_{language}.csv"
         else:
-            url = "https://openaipublic.blob.core.windows.net/simple-evals/mmlu.csv"
+            url = "data/simple-evals/mmlu/mmlu.csv"
         df = pandas.read_csv(url)
         examples = [row.to_dict() for _, row in df.iterrows()]
         if num_examples:
