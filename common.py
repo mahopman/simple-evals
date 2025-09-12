@@ -1,7 +1,6 @@
 import io
 import os
 from collections import defaultdict
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from multiprocessing.pool import ThreadPool
 from typing import Any, Callable
 

@@ -17,17 +17,17 @@ LATIN_LANGUAGES = ["de", "en", "es", "fr", "sw"]
 NON_LATIN_LANGUAGES = ["bn", "ja", "ru", "te", "th", "zh"]
 
 LANG_TO_FPATH = {
-    "bn": "https://openaipublic.blob.core.windows.net/simple-evals/mgsm_bn.tsv",
-    "de": "https://openaipublic.blob.core.windows.net/simple-evals/mgsm_de.tsv",
-    "en": "https://openaipublic.blob.core.windows.net/simple-evals/mgsm_en.tsv",
-    "es": "https://openaipublic.blob.core.windows.net/simple-evals/mgsm_es.tsv",
-    "fr": "https://openaipublic.blob.core.windows.net/simple-evals/mgsm_fr.tsv",
-    "ja": "https://openaipublic.blob.core.windows.net/simple-evals/mgsm_ja.tsv",
-    "ru": "https://openaipublic.blob.core.windows.net/simple-evals/mgsm_ru.tsv",
-    "sw": "https://openaipublic.blob.core.windows.net/simple-evals/mgsm_sw.tsv",
-    "te": "https://openaipublic.blob.core.windows.net/simple-evals/mgsm_te.tsv",
-    "th": "https://openaipublic.blob.core.windows.net/simple-evals/mgsm_th.tsv",
-    "zh": "https://openaipublic.blob.core.windows.net/simple-evals/mgsm_zh.tsv",
+    "bn": "data/simple-evals/mgsm/mgsm_bn.tsv",
+    "de": "data/simple-evals/mgsm/mgsm_de.tsv",
+    "en": "data/simple-evals/mgsm/mgsm_en.tsv",
+    "es": "data/simple-evals/mgsm/mgsm_es.tsv",
+    "fr": "data/simple-evals/mgsm/mgsm_fr.tsv",
+    "ja": "data/simple-evals/mgsm/mgsm_ja.tsv",
+    "ru": "data/simple-evals/mgsm/mgsm_ru.tsv",
+    "sw": "data/simple-evals/mgsm/mgsm_sw.tsv",
+    "te": "data/simple-evals/mgsm/mgsm_te.tsv",
+    "th": "data/simple-evals/mgsm/mgsm_th.tsv",
+    "zh": "data/simple-evals/mgsm/mgsm_zh.tsv",
 }
 LANG_TO_INSTRUCTIONS = {
     "en": """Solve this math problem. Give the reasoning steps before giving the final answer on the last line by itself in the format of "Answer:". Do not add anything other than the integer answer after "Answer:".

@@ -62,7 +62,7 @@ To run the evaluations, you can use the following command:
 ```bash
 python -m simple-evals.simple_evals --model <model_name> --examples <num_examples>
 ```
-This will launch evaluations through the OpenAI API.
+
 
 ## Notes
 

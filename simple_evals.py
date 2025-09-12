@@ -1,6 +1,5 @@
 import argparse
 import json
-import subprocess
 from datetime import datetime
 
 import pandas as pd
@@ -15,14 +14,14 @@ from .math_eval import MathEval
 from .mgsm_eval import MGSMEval
 from .mmlu_eval import MMLUEval
 from .humaneval_eval import HumanEval
-from .sampler.chat_completion_sampler import (
+from .sampler.openai_samplers import (
     OPENAI_SYSTEM_MESSAGE_API,
     OPENAI_SYSTEM_MESSAGE_CHATGPT,
     ChatCompletionSampler,
+    OChatCompletionSampler,
+    ResponsesSampler,
 )
 from .sampler.claude_sampler import ClaudeCompletionSampler, CLAUDE_SYSTEM_MESSAGE_LMSYS
-from .sampler.o_chat_completion_sampler import OChatCompletionSampler
-from .sampler.responses_sampler import ResponsesSampler
 from .simpleqa_eval import SimpleQAEval
 
 

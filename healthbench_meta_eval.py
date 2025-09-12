@@ -11,13 +11,11 @@ import random
 from collections import defaultdict
 from typing import Literal
 
-import blobfile as bf
-
 from . import common
 from .healthbench_eval import GRADER_TEMPLATE, parse_json_to_dict
 from .types import Eval, EvalResult, SamplerBase, SingleEvalResult
 
-INPUT_PATH = "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_meta_eval.jsonl"
+INPUT_PATH = "data/simple-evals/healthbench/2025-05-07-06-14-12_oss_meta_eval.jsonl"
 INDEX_STR_TEMPLATE = "pairwise_{model_or_physician}_{metric}_{pred_str}"
 CLUSTER_STR_TEMPLATE = "{cluster}: {index_str}"
 
@@ -38,7 +36,7 @@ class HealthBenchMetaEval(Eval):
         n_threads: int = 120,
         n_repeats: int = 1,
     ):
-        with bf.BlobFile(INPUT_PATH, "rb") as f:
+        with open(INPUT_PATH, "r") as f:
             examples = [json.loads(line) for line in f]
         print(f"Loaded {len(examples)} examples from {INPUT_PATH}")
 
