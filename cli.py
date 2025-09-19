@@ -4,22 +4,6 @@ from datetime import datetime
 
 import pandas as pd
 
-<<<<<<< HEAD:simple_evals.py
-from . import common
-from .browsecomp_eval import BrowseCompEval
-from .drop_eval import DropEval
-from .gpqa_eval import GPQAEval
-from .healthbench_eval import HealthBenchEval
-from .healthbench_meta_eval import HealthBenchMetaEval
-from .math_eval import MathEval
-from .mgsm_eval import MGSMEval
-from .mmlu_eval import MMLUEval
-from .humaneval_eval import HumanEval
-from .sampler.openai_samplers import (
-=======
-from dotenv import load_dotenv
-
-load_dotenv()
 import common
 from browsecomp_eval import BrowseCompEval
 from drop_eval import DropEval
@@ -30,31 +14,20 @@ from math_eval import MathEval
 from mgsm_eval import MGSMEval
 from mmlu_eval import MMLUEval
 from sampler.openai_samplers import (
->>>>>>> 52634e9 (Resolve merge: fix HealthBench imports, drop openai_samplers and composite_eval scripts, rename entrypoint to cli.py; keep absolute imports):cli.py
     OPENAI_SYSTEM_MESSAGE_API,
     OPENAI_SYSTEM_MESSAGE_CHATGPT,
     ChatCompletionSampler,
     OChatCompletionSampler,
     ResponsesSampler,
 )
-<<<<<<< HEAD:simple_evals.py
-from .sampler.claude_sampler import ClaudeCompletionSampler, CLAUDE_SYSTEM_MESSAGE_LMSYS
-from .simpleqa_eval import SimpleQAEval
-=======
 from sampler.claude_sampler import ClaudeCompletionSampler, CLAUDE_SYSTEM_MESSAGE_LMSYS
 from sampler.grok_sampler import GrokCompletionSampler
 from simpleqa_eval import SimpleQAEval
 
-_HUMANEVAL_IMPORT_ERROR = None
-try:
-    from humaneval_eval import HumanEval
-except Exception as e:
-    _HUMANEVAL_IMPORT_ERROR = e
-    HumanEval = None
+from humaneval_eval import HumanEval
 
 from dotenv import load_dotenv
 load_dotenv()
->>>>>>> 52634e9 (Resolve merge: fix HealthBench imports, drop openai_samplers and composite_eval scripts, rename entrypoint to cli.py; keep absolute imports):cli.py
 
 
 def main():

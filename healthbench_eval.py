@@ -27,7 +27,7 @@ import numpy as np
 import pandas as pd
 
 import common
-from sampler.chat_completion_sampler import (
+from sampler.openai_samplers import (
     OPENAI_SYSTEM_MESSAGE_API,
     ChatCompletionSampler,
 )

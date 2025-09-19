@@ -5,7 +5,7 @@ from typing import Any
 import openai
 from openai import OpenAI
 
-from ..types import MessageList, SamplerBase, SamplerResponse
+from se_types import MessageList, SamplerBase, SamplerResponse
 
 # System messages
 OPENAI_SYSTEM_MESSAGE_API = "You are a helpful assistant."
