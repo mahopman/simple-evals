@@ -4,7 +4,7 @@ from typing import Any
 
 import requests
 
-from ..types import MessageList, SamplerBase, SamplerResponse
+from se_types import MessageList, SamplerBase, SamplerResponse
 
 
 class GrokCompletionSampler(SamplerBase):
@@ -28,7 +28,7 @@ class GrokCompletionSampler(SamplerBase):
         max_tokens: int = 1024,
         api_base: str | None = None,
     ):
-        self.api_key_name = "XAI_API_KEY"
+        self.api_key_name = "GROK_API_KEY"
         self.api_key = os.environ.get(self.api_key_name)
         assert self.api_key, f"Please set {self.api_key_name}"
         self.model = model
@@ -36,7 +36,7 @@ class GrokCompletionSampler(SamplerBase):
         self.temperature = temperature
         self.max_tokens = max_tokens
         # Official xAI endpoint mirrors OpenAI-style path
-        self.api_base = api_base or os.environ.get("XAI_API_BASE", "https://api.x.ai")
+        self.api_base = api_base or os.environ.get("GROK_API_BASE", "https://api.x.ai")
         self.image_format = "url"
 
     def _handle_image(

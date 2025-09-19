@@ -11,9 +11,11 @@ import random
 from collections import defaultdict
 from typing import Literal
 
-from . import common
-from .healthbench_eval import GRADER_TEMPLATE, parse_json_to_dict
-from .types import Eval, EvalResult, SamplerBase, SingleEvalResult
+import blobfile as bf
+
+import common
+from healthbench_eval import GRADER_TEMPLATE, parse_json_to_dict
+from se_types import Eval, EvalResult, SamplerBase, SingleEvalResult
 
 INPUT_PATH = "data/simple-evals/healthbench/2025-05-07-06-14-12_oss_meta_eval.jsonl"
 INDEX_STR_TEMPLATE = "pairwise_{model_or_physician}_{metric}_{pred_str}"

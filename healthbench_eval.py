@@ -26,12 +26,12 @@ import blobfile as bf
 import numpy as np
 import pandas as pd
 
-from . import common
-from .sampler.openai_samplers import (
+import common
+from sampler.chat_completion_sampler import (
     OPENAI_SYSTEM_MESSAGE_API,
     ChatCompletionSampler,
 )
-from .types import Eval, EvalResult, MessageList, SamplerBase, SingleEvalResult
+from se_types import Eval, EvalResult, MessageList, SamplerBase, SingleEvalResult
 
 INPUT_PATH = "data/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl"
 INPUT_PATH_HARD = "data/simple-evals/healthbench/hard_2025-05-08-21-00-10.jsonl"
