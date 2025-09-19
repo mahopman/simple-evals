@@ -4,25 +4,30 @@ from datetime import datetime
 
 import pandas as pd
 
-from . import common
-from .browsecomp_eval import BrowseCompEval
-from .drop_eval import DropEval
-from .gpqa_eval import GPQAEval
-from .healthbench_eval import HealthBenchEval
-from .healthbench_meta_eval import HealthBenchMetaEval
-from .math_eval import MathEval
-from .mgsm_eval import MGSMEval
-from .mmlu_eval import MMLUEval
-from .humaneval_eval import HumanEval
-from .sampler.openai_samplers import (
+import common
+from browsecomp_eval import BrowseCompEval
+from drop_eval import DropEval
+from gpqa_eval import GPQAEval
+from healthbench_eval import HealthBenchEval
+from healthbench_meta_eval import HealthBenchMetaEval
+from math_eval import MathEval
+from mgsm_eval import MGSMEval
+from mmlu_eval import MMLUEval
+from sampler.openai_samplers import (
     OPENAI_SYSTEM_MESSAGE_API,
     OPENAI_SYSTEM_MESSAGE_CHATGPT,
     ChatCompletionSampler,
     OChatCompletionSampler,
     ResponsesSampler,
 )
-from .sampler.claude_sampler import ClaudeCompletionSampler, CLAUDE_SYSTEM_MESSAGE_LMSYS
-from .simpleqa_eval import SimpleQAEval
+from sampler.claude_sampler import ClaudeCompletionSampler, CLAUDE_SYSTEM_MESSAGE_LMSYS
+from sampler.grok_sampler import GrokCompletionSampler
+from simpleqa_eval import SimpleQAEval
+
+from humaneval_eval import HumanEval
+
+from dotenv import load_dotenv
+load_dotenv()
 
 
 def main():
@@ -208,6 +213,14 @@ def main():
         "gpt-3.5-turbo-0125-temp-1": ChatCompletionSampler(
             model="gpt-3.5-turbo-0125",
             system_message=OPENAI_SYSTEM_MESSAGE_API,
+            temperature=1.0,
+        ),
+        # Grok (xAI) models
+        "grok-4-0709": GrokCompletionSampler(
+            model="grok-4-0709",
+        ),
+        "grok-4-0709-temp-1": GrokCompletionSampler(
+            model="grok-4-0709",
             temperature=1.0,
         ),
         # Chatgpt models:
