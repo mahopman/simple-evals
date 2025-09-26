@@ -25,16 +25,6 @@ This repository currently contains the following evals:
 
 Datasets needed for these evals are vendored under `data/simple-evals/...` (no separate download required for the default subsets used here).
 
-## Samplers
-
-Implemented sampling interfaces:
-
-- OpenAI — [docs](https://platform.openai.com/docs/overview)
-- Anthropic Claude — [API](https://www.anthropic.com/api)
-- xAI Grok — [site](https://x.ai)
-
-Make sure to set the `*_API_KEY` environment variables before using these APIs.
-
 ## Setup
 
 Use Python 3.10+ and install dependencies:
@@ -52,38 +42,6 @@ Use the CLI in `cli.py`:
 ```bash
 python cli.py --list-models
 ```
-
-Run a specific eval/model (override example count if desired):
-
-```bash
-# MMLU with GPT-4.1
-python cli.py --eval mmlu --model gpt-4.1 --examples 200
-
-# MATH with o3 (reasoning model), with repeats
-python cli.py --eval math --model o3 --n-repeats 10
-
-# Multiple evals and models at once (comma-separated)
-python cli.py --eval mmlu,math --model gpt-4.1,gpt-4o
-
-# Use Grok or Claude
-python cli.py --eval simpleqa --model grok-4-0709
-python cli.py --eval mmlu --model claude-3-7-sonnet-20250219
-
-# Quick smoke test (small samples)
-python cli.py --debug
-```
-
-If `--eval` is omitted, a default suite runs: `mmlu, math, gpqa, mgsm, drop, humaneval, simpleqa, browsecomp, healthbench, healthbench_hard, healthbench_consensus, healthbench_meta`.
-
-### Output
-
-For each (eval, model) pair, three files are written under `/tmp/` with a timestamp:
-
-- HTML report: `/tmp/<eval>_<model>_<YYYYMMDD_HHMMSS>[ _DEBUG].html`
-- Metrics JSON: `/tmp/<eval>_<model>_<YYYYMMDD_HHMMSS>[ _DEBUG].json`
-- Full results JSON: `/tmp/<eval>_<model>_<YYYYMMDD_HHMMSS>[ _DEBUG]_allresults.json`
-
-At the end, a merged markdown table of metrics is printed to stdout.
 
 ## Notes
 
